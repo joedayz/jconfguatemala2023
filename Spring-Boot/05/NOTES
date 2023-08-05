@@ -1,0 +1,14 @@
+Developing Reactive Micro services
+===================================
+
+0. unset COMPOSE_FILE
+
+1. ./gradlew clean build && docker-compose build && ./test-em-all.bash start stop
+
+2. export COMPOSE_FILE=docker-compose-partitions.yml
+./test-em-all.bash start stop
+unset COMPOSE_FILE
+
+3. export COMPOSE_FILE=docker-compose-kafka.yml
+   ./test-em-all.bash start stop
+   unset COMPOSE_FILE

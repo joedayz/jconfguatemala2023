@@ -1,0 +1,8 @@
+Deploying our Microservices using docker
+========================================
+
+1. ./gradlew build
+or
+./gradlew :microservices:product-service:build
+2. ./gradlew test
+3. ./gradlew clean build && docker-compose build && ./test-em-all.bash start stop

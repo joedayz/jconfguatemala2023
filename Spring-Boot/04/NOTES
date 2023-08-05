@@ -1,0 +1,9 @@
+Adding persistence
+==================
+
+1. ./gradlew clean build && docker-compose build && ./test-em-all.bash start stop
+2. Only run Product Tests:
+
+./gradlew microservices:product-service:test --tests PersistenceTests
+
+3. docker-compose down

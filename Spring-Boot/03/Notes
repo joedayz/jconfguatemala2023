@@ -1,0 +1,7 @@
+Adding an API Description using OpenAPI
+=======================================
+1. ./gradlew clean build && docker-compose build && ./test-em-all.bash start stop
+2. docker-compose up -d
+3. ./test-em-all.bash
+4. http://localhost:8080/openapi/swagger-ui.html
+5. docker-compose down

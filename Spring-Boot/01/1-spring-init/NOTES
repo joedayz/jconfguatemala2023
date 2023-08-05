@@ -1,0 +1,5 @@
+Cooperating Microservices
+=========================
+
+1. ./gradlew build
+2. ./gradlew test

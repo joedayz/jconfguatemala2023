@@ -1,0 +1,31 @@
+Cooperating Microservices
+=========================
+
+1. ./gradlew build
+2. ./gradlew test
+3. Startup all the projects:
+
+java -jar microservices/product-composite-service/build/libs/*.jar &
+java -jar microservices/product-service/build/libs/*.jar &
+java -jar microservices/recommendation-service/build/libs/*.jar &
+java -jar microservices/review-service/build/libs/*.jar &
+
+4. Validate the micro services
+
+curl http://localhost:7000/product-composite/1 -s | jq .
+
+# Verify that no recommendations are returned for productId 113
+curl http://localhost:7000/product-composite/113 -s | jq .
+
+# Verify that no reviews are returned for productId 213
+curl http://localhost:7000/product-composite/213 -s | jq .
+
+# Verify that a 422 (Unprocessable Entity) error is returned for a productId that is out of range (-1)
+curl http://localhost:7000/product-composite/-1 -i
+
+# Verify that a 400 (Bad Request) error is returned for a productId that is not a number, i.e. invalid format
+curl http://localhost:7000/product-composite/invalidProductId -i
+
+5. ./test-em-all.bash
+
+6. kill $(jobs -p)
